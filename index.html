@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SudipStore</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="top"></div>
+<header>
+  <div class="brand"><div class="logo">S</div><div><b>SUDIPSTORE</b><small>GAMING STORE</small></div></div>
+  <div class="header-actions"><button class="bell">🔔</button><button onclick="openAccount()" class="menu">ACCOUNT »</button></div>
+</header>
+<div class="crumb">🏠 Home　›　Products　›　<span>Free Fire Diamond</span></div>
+
+<main class="wrap">
+<section class="panel">
+<h1>🪙 Select Diamond Package</h1>
+<div class="tabs">
+<button class="tab active" data-tab="diamonds">Diamonds</button>
+<button class="tab" data-tab="membership">Membership</button>
+<button class="tab" data-tab="evo">Evo Access</button>
+<button class="tab" data-tab="level">Level up</button>
+</div>
+<div id="products" class="grid"></div>
+</section>
+<section class="panel about">
+<h2>ⓘ About SudipStore</h2>
+<p>Sign in before placing an order. Your order is saved as <b>Pending</b> until a SudipStore administrator reviews and approves or declines the payment.</p>
+</section>
+</main>
+
+<div class="coupon">USE CODE<br><b>SUDIP</b></div>
+<div class="chat">💬 Live Chat</div>
+
+<div id="accountModal" class="modal"><div class="modal-box">
+<button class="x" onclick="closeAccount()">×</button>
+<div id="signedOut">
+<h2>SudipStore Account</h2>
+<input id="name" placeholder="Your name (for new accounts)">
+<input id="email" type="email" placeholder="Email">
+<input id="password" type="password" placeholder="Password (minimum 8 characters)">
+<div class="row"><button onclick="signIn()">Sign in</button><button class="dark" onclick="signUp()">Create account</button></div>
+<p id="authMessage"></p>
+</div>
+<div id="signedIn" hidden>
+<h2>Account</h2><p id="userInfo"></p>
+<a id="myOrders" href="orders.html">My Orders</a>
+<a id="adminLink" href="admin.html" hidden>Admin Panel</a>
+<button onclick="signOut()">Sign out</button>
+</div>
+</div></div>
+
+<div id="orderModal" class="modal"><div class="modal-box">
+<button class="x" onclick="closeOrder()">×</button>
+<h2 id="orderTitle"></h2><p id="orderPrice"></p>
+<input id="paymentReference" placeholder="Payment transaction/reference ID">
+<p class="hint">Do not enter card numbers, passwords, or other sensitive credentials.</p>
+<button onclick="submitOrder()">Submit for Approval</button>
+<p id="orderMessage"></p>
+</div></div>
+
+<script src="config.js"></script><script src="app.js"></script>
+</body></html>
